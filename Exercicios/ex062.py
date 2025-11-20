@@ -1,6 +1,4 @@
 #Melhore o exercicio 61
-#
-
 
 
 numeros = list()

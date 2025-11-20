@@ -2,6 +2,7 @@
 # No final mostre a matriz com a formatação adequada
 
 numeros = list()
+
 for linha in range(0,3):
     temp = list()
 
