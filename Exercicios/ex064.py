@@ -10,12 +10,15 @@
 aluno = {}
 
 aluno['Nome'] = input(f'Digite o nome do aluno:  ')
-aluno['Média'] = float(input(f"Digite a media do {aluno['Nome']}: "))
+aluno['Média'] = float(input(f'Digite a media do {aluno["Nome"]}: '))
+
 
 if aluno['Média'] > 9.5:
     aluno['Situação'] = 'Aprovado'
 else:
     aluno['Situação'] = 'Reprovado'
 
+print('-=' * 30)
+for chave, valor in aluno.items():
+    print(f'{chave} -> {valor}')
 
-print(aluno)
