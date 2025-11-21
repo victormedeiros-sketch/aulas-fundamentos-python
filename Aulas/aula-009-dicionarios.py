@@ -14,4 +14,4 @@ for c in range(qtd_alunos):
 
     turma.append(aluno.copy())
 
-    print(aluno)
+print(turma)
