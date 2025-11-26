@@ -21,7 +21,9 @@ def contagem():
     print('CONTAGEM PERSONALIZADA')
     inicio = int(input('INICIO: '))
     fim = int(input('FIM: '))
-    for c in range(inicio, fim):
+    passo = int(input('PASSO: '))
+
+    for c in range(inicio, fim, passo):
         print(c)
         sleep(0.3)
 
