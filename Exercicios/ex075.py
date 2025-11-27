@@ -10,4 +10,4 @@ def tabuada(num):
 
 
 
-tabuada(2)
+tabuada(int(input('Digite o número que deseja visualizar a tabuada: ')))

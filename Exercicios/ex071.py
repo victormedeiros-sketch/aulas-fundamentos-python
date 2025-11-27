@@ -10,5 +10,5 @@ def titulo(txt):
     print('_'*tam)
 
 
-titulo('ESTOU A APRENDER PYTHON')
+titulo(input('Digite uma menságem: '))
 

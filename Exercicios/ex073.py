@@ -4,27 +4,20 @@
 # analisar todos os valores e dizer qual
 # deles é o maior.
 
-def pede_numero():
-    n_maior = 0
-    while True:
-        n = int(input('Digite um número: '))
-        if n_maior == 0:
-            n_maior = n
+
+def numeros(*num):
+    maior = 0           #maior = max(num)
+    for v in num:
+        if v == 0:
+            maior = v
         else:
-            if n > n_maior:
-                n_maior = n
-
-        qc = input('Quer continuar? [S/N] ').upper()
-        if 'S' in qc:
-            continue
-        elif 'N' in qc:
-            break
-        else:
-            print('Comando inválido, tente novamente.')
-            qc = input('Quer continuar? [S/N] ').upper()
-    print(f'O maior número digitado foi {n_maior}')
+            if v > maior:
+                maior = v
+    print(f'O maior número é {maior}')
 
 
-pede_numero()
+
+numeros(2,5,10)
+
 
 
