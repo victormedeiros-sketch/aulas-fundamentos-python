@@ -15,4 +15,4 @@ with caminho.open('w', encoding='utf-8', errors='ignore') as file:
     print('Ficheiro aberto em modo escrita com sucesso')
     file.write('Olá turma!!!\n')
     file.write('Olá novamente!!!!\n')
-    print('Mensagens escritas com sucesso.')
+    print('Mensagens escritas c om sucesso.')
