@@ -7,29 +7,27 @@
 # b) De 10 até 0, de 1 em 1
 # c) Contagem personalizada
 
-from time import sleep
 
-def contador(i,f,p):
+def contagem(i: int, f: int, p: int):
+
     if p < 1:
         p = 1
-        print('Passo vai iniciar com  o valor padrão')
+        print('Passo vai iniciar com o valor padrão')
 
     if i > f:
         p = -p
         f = f - 1
-    for c in range(i,f,p):
+
+    for c in range(i, f, p):
         print(c)
 
 
-print('Contagem de 1 a 20 com passo 2:')
-contador(1,20,2)
-print('Contagem regressiva de 10 a 0:')
-contador(10,0,1)
-
+contagem(1, 20, 2)
+contagem(10, 0, 1)
 
 print('Contagem personalizada')
-inicio = int(input('Inicio: '))
-fim = int(input('Fim: '))
-passo = int(input('Passo: '))
+inicio = int(input('Digite o inicio: '))
+fim = int(input('Digite o fim: '))
+passo = int(input('Digite o passo: '))
 
-contador(inicio,fim,passo)
+contagem(inicio, fim, passo)

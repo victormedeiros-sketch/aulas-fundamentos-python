@@ -4,37 +4,44 @@
 # e duas estrelas de 1 a 12 [sem repetir]. Cada sorteio deve ser guardado numa lista composta.
 
 from random import randint
+from time import sleep
 
-print('---Gerador de palpites Euromilhões---')
+print('--- GERADOR DE CHAVES PARA O EUROMILHÕES ---')
 
-n_palpites = int(input('Quantos palpites deseja gerar?\n--->  '))
+n_palpites = int(input('Quantos palpites deseja gerar?\n--> '))
 
+sleep(1)
+
+print(f'A gerar {n_palpites} palpites...\n')
 for c in range(n_palpites):
+
+    print(f'--- PALPITE {c+1}')
+    sleep(1)
+
     palpite = []
     numeros = []
     estrelas = []
 
     while len(numeros) < 5:
-        numero = randint(0,50)
+        numero = randint(1, 50)
         if numero not in numeros:
             numeros.append(numero)
 
     while len(estrelas) < 2:
-        estrela = randint(1,12)
+        estrela = randint(1, 12)
         if estrela not in estrelas:
             estrelas.append(estrela)
 
-    palpite.append(numeros[:])
-    palpite.append(estrelas[:])
+    palpite.append(sorted(numeros[:]))
+    palpite.append(sorted(estrelas[:]))
 
     for indice, linha in enumerate(palpite):
         if indice == 0:
             for numero in linha:
-                print(f'{numero}|', end='')
+                print(f'{numero} | ', end='')
+                sleep(0.5)
         else:
             for estrela in linha:
-                print(f'{estrela}|', end='')
-
-
-
-
+                print(f'*{estrela} | ', end='')
+                sleep(0.5)
+    print()

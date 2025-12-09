@@ -2,9 +2,10 @@
 # que converta a temperatura de Celsius
 # para Fahrenheit.
 
-def conversor(temp):
-    print(f'{(temp*1.8)+32}ºF')
+def conversor(temp: float):
+    fahrenheit = temp * 1.8 + 32
 
+    print(f'{temp:.2f}ºC')
+    print(f'{fahrenheit:.2f}ºF')
 
-
-conversor(int(input('Digite a temperatura em ºC para converter em ºF: ')))
+conversor(float(input('Digite a temperatura em ºC para converter em ºF: ')))

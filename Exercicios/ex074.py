@@ -5,22 +5,18 @@
 # nome do aluno, a sua média e se ele
 # ficou aprovado ou não.
 
-def  aluno_media(*dados):
-    media = 0
-    qtd = 0
-    nome = ''
-    for n in dados:
-        if nome == '':
-            nome += n
-        else:
-            qtd += 1
-            media += n
+from statistics import mean
 
-    print(f'A média das notas é {media / qtd}')
+def analisa_notas(nome: str, notas: list):
+    media = mean(notas)
+    situacao = 'Aprovado' if media >= 9.5 else 'Reprovado'
+
+    print(f'Nome: {nome}')
+    print(f'Média: {media:.2f}')
+    print(f'Situação: {situacao}')
 
 
+name = 'Victor'
+lst_notas = [10, 9, 20, 15, 12, 9]
 
-aluno_media('Victor', 10,10,10)
-
-
-
+analisa_notas(name, lst_notas)

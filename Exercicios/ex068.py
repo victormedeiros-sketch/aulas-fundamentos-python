@@ -8,44 +8,50 @@
 # c) Quantas mulheres foram registadas;
 # d) Quantos homens com idade acima da média foram registados.
 
+
+
 pessoas = []
 dados = dict()
 qtd_pessoas = 0
 soma_idades = 0
 qtd_mulheres = 0
 
+
 while True:
-    dados['nome'] = input('Nome: ').strip()
+    dados['nome'] = input('Digite um nome:').strip()
     while True:
-        dados['sexo'] = input('Sexo: ').strip().lower()
+        dados['sexo'] = input('Digite o sexo [m/f]:').strip().lower()
         if dados['sexo'] != 'm' and dados['sexo'] != 'f':
-            print('Por favor introduza o sexo válido.')
+            print('Por favor introduza um sexo válido.')
         else:
             break
 
     if dados['sexo'] == 'f':
+        qtd_mulheres += 1
 
-    dados['idade'] = input('Idade: ')
+    dados['idade'] = int(input('Digite a idade:'))
     soma_idades += dados['idade']
-    pessoas.append(dados.coppy())
+
+    pessoas.append(dados.copy())
     qtd_pessoas += 1
+
     dados.clear()
 
-    opcao = input('Digite sim para terminar').strip().lower()
+    opcao = input('--- digite sim para terminar ---').strip().lower()
     if opcao == 'sim':
         break
 
 media_idades = round(soma_idades / qtd_pessoas, 2)
-qtd_homesn_acima_media = 0
+qtd_homens_acima_media = 0
 
 for pessoa in pessoas:
     if pessoa['sexo'] == 'm':
         if pessoa['idade'] > media_idades:
             qtd_homens_acima_media += 1
 
-print('#'*30)
+print('##################################')
 print('Informações:')
-print(f'Foram registrados {qtd_pessoas} pessoas')
-print(f'Amedia de idade é {media_idades} anos.')
-print(f'Foram registradas {qtd_mulheres} mulheres')
-print(f'Foram registrados {qtd_homens_acima_media} homens com idade acima da media')
+print(f'-- Foram registadas {qtd_pessoas} pessoas.')
+print(f'-- A média de idade é {media_idades} anos.')
+print(f'-- Foram registadas {qtd_mulheres} mulheres.')
+print(f'-- Foram registados {qtd_homens_acima_media} homens com idade acima da média.')

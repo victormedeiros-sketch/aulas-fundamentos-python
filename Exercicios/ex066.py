@@ -9,27 +9,38 @@
 # pelo crédito e se o crédito foi aprovado
 # sempre que o remanescente seja superior ao
 # valor mensal do crédito.
+
+
 from datetime import datetime
-simulador = {}
+from time import sleep
+
+dados = dict()
 
 print('--- SIMULAÇÃO DE CRÉDITO HABITAÇÃO ---')
 
-simulador['Nome'] = input('Nome: \n--->')
-simulador['Ano de nascimento'] = int(input('Ano de nascimento: \n--->'))
-simulador['Rendimentos mensais'] = float(input('Rendimentos mensais: \n--->'))
-simulador['Despesas mensais'] = float(input('Despesas mensais: \n--->'))
-simulador['Montante do crédito'] = float(input('Montante do crédito: \n--->'))
-simulador['Prazo de pagamento'] = int(input('Prazo de pagamento(em anos): \n--->'))
+dados['Nome'] = input('Digite o seu nome: ')
+dados['Ano de nascimento'] = int(input('Digite o seu ano de nascimento: '))
+dados['Rendimentos mensais'] = float(input('Digite os rendimentos mensais: '))
+dados['Despesas mensais'] = float(input('Digite as despesas mensais: '))
+dados['Montante do Crédito'] = float(input('Digite o montante do crédito: '))
+dados['Prazo em anos'] = int(input('Digite o prazo em anos: '))
 
 ano_atual = datetime.now().year
 
-simulador['Remanescente'] = simulador['Rendimentos mensais'] - simulador['Despesas mensais']
-simulador['Idade'] = ano_atual - simulador['Ano de nascimento']
-simulador['Parcela'] = (simulador['Rendimentos mensais'] - simulador['Despesas mensais']) / 12 #corrigir
+dados['Idade'] = ano_atual - dados['Ano de nascimento']
+dados['Remanescente'] = dados['Rendimentos mensais'] - dados['Despesas mensais']
+dados['Mensalidade'] = dados['Montante do Crédito'] / (dados['Prazo em anos'] * 12)
+dados['Situação'] = 'Aprovado' if dados['Remanescente'] > dados['Mensalidade'] else 'Reprovado'
 
-if simulador['Remanescente'] > simulador['Parcela']:
-    simulador['Situação'] = 'Crédito aprovado'
-else:
-    simulador['Situação'] = 'Crédito negado'   #Refazer usando operador ternario
+print(f'A analisar a situação do cliente {dados['Nome']}', end='')
+for c in range(3):
+    print('.', end='')
+    sleep(1)
+print()
 
-print(simulador)#completar com o do professor
+for chave, valor in dados.items():
+    if type(valor) == float:
+        print(f'{chave} -> {valor:.2f}€')
+    else:
+        print(f'{chave} -> {valor}')
+    sleep(1.5)

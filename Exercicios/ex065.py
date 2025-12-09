@@ -6,14 +6,17 @@
 # para ver a ordem de jogada.
 
 from random import randint
-print('-=-=JOGO DE DADOS=-=-')
-qtd_jogadores = int(input('Digite quantos jogadores vão jogar: '))
+from time import sleep
+
+qtdJogadores = int(input('Digite quandos jogadores vão jogar: '))
 jogadores = {}
 
-for c in range(qtd_jogadores):
-    nome = input(f'Digite o nome do {c+1}º jogador')
+for c in range(qtdJogadores):
+    nome = f'JOGADOR{c+1}' #input(f'Digite o nome do {c+1}º jogador: ')
     jogada = randint(1, 6)
     jogadores[nome] = jogada
+
+    #jogadores[input(f'Digite o nome do {c+1}º jogador: ')] = randint(1,6)
 
 auxiliar = jogadores.copy()
 ranking = list()
@@ -29,8 +32,8 @@ while auxiliar:
     ranking.append((maior_jogador, maior_valor))
     del auxiliar[maior_jogador]
 
-for tuple in ranking:
-    for elemento in tuple:
-        print(f'{elemento}', end=' ')
-
+for tupla in ranking:
+    for elemento in tupla:
+        print(f'{elemento}', end='  ')
+    sleep(1)
     print()

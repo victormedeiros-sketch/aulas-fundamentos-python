@@ -2,23 +2,21 @@
 # média de um aluno, calculando a sua
 # situação, tudo dentro de um dicionário.
 # No final mostre todo o conteúdo do dicionário.
-
 # Situação:
 # Média >= 9,5 – Aprovado
 # Média < 9,5 - Reprovado
 
-aluno = {}
 
-aluno['Nome'] = input(f'Digite o nome do aluno:  ')
-aluno['Média'] = float(input(f'Digite a media do {aluno["Nome"]}: '))
+aluno = {'Nome': input('Digite o seu nome: '),
+         'Média': float(input('Digite a sua média: '))
+         }
 
-
-if aluno['Média'] > 9.5:
+if aluno['Média'] >= 9.5:
     aluno['Situação'] = 'Aprovado'
 else:
     aluno['Situação'] = 'Reprovado'
 
-print('-=' * 30)
+# aluno['Situação'] = 'Aprovado' if if aluno['Média'] >= 9.5 else 'Reprovado'
+
 for chave, valor in aluno.items():
     print(f'{chave} -> {valor}')
-
