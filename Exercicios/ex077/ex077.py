@@ -45,9 +45,8 @@ def carta_conducao(ano_nascimento):
         file.write(f"Ano de Nascimento: {ano_nascimento}\n")
         file.write(f"Ano Atual: {ano_atual}\n")
         file.write(f"Idade Calculada: {idade} anos\n")
-        file.write(f"=================================================\n")
-        file.write(autorizacao + "\n")
-        file.write("=================================================\n")
+
+
 
     print(f'\nSucesso! Informação gravada no ficheiro "{ficheiro}"')
     print(autorizacao)
