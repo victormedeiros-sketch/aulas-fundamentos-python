@@ -18,12 +18,6 @@ from pathlib import Path
 
 
 def carta_conducao(ano_nascimento):
-    """
-    Recebe o ano de nascimento de uma pessoa, calcula a sua idade,
-    determina o seu estatuto para tirar a carta de condução e grava
-    a informação num ficheiro.
-
-    """
     ano_atual = datetime.today().year
     idade = ano_atual - ano_nascimento
 

@@ -1,4 +1,3 @@
-
 #Crie um programa com uma função chamada fatorial(), que receba dois parâmetros: o primeiro será o número a calcular o fatorial e o segundo será opcional e lógico que indique se será exibido ou não o processo de cálculo do fatorial. O fatorial deve ser guardado num ficheiro txt.
 
 
@@ -23,8 +22,9 @@ def fatorial(numero: int, mostra=False) -> str:
             numero -= 1
 
     calculo += str(fatorial_calculado)
-
+    print(f'O fatorial de {numero} é {calculo}')
     return calculo
+
 
 
 def guarda_txt(txt: str) -> None:
@@ -40,7 +40,9 @@ def guarda_txt(txt: str) -> None:
 
 
 
-guarda_txt(fatorial(5,True))
+
+guarda_txt(fatorial(12,True))
+
 
 
 

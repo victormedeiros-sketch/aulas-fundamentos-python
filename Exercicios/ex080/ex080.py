@@ -10,43 +10,38 @@
 # <9,5 – fraca
 # >9,5 e <12 - razoável
 
-def relacao_notas():
-    turma = {}
-    qtd_notas = 0
-    maior_nota = 0
-    soma_nota = 0
-    while True:
-        nota = float(input('Nota: '))
-        qtd_notas += 1
-        soma_nota += nota
-        media = soma_nota / qtd_notas
-        if maior_nota == 0:
-            maior_nota = nota
+def analisar_notas(*notas, situacao=False):
+    res = {}
+    res['quantidade'] = len(notas)
+    res['maior'] = max(notas)
+    res['media'] = sum(notas) / len(notas)
+
+    if situacao:
+        if res['media'] > 12:
+            res['situacao'] = 'boa'
+        elif res['media'] < 9.5:
+            res['situacao'] = 'fraca'
         else:
-            if nota > maior_nota:
-                maior_nota = nota
-        cont = input('Continuar? [s/n] ').lower()
-        if 's' in cont:
-            continue
-        elif 'n' in cont:
-            break
-        else:
-            print('Resposta inválida')
-            cont = input('Continuar? [s/n] ').lower()
+            res['situacao'] = 'razoável'
 
-    turma['Quantidade de notas'] = qtd_notas
-    turma['Maior Nota'] = maior_nota
-    turma['Media da turma'] = media
-
-    if media >= 12:
-        turma['Situação'] = 'Boa'
-    elif media <= 9.5:
-        turma['Situação'] = 'Fraca'
-    else:
-        turma['Situação'] = 'Razoavel'
-    print(turma)
+    return res
 
 
+def guarda(txt: str) -> None:
+    from pathlib import Path
+
+    caminho = Path(r'analisa.txt')
+
+    with caminho.open('a', encoding='utf-8', errors='ignore') as file:
+        file.write(f'{txt}\n')
+
+
+
+
+
+
+resultado = guarda(analisar_notas(12,1,1.2,7.2,9,situacao=True))
+print('Notas inseridas com sucesso!')
 
 
 

@@ -1,0 +1,4 @@
+{'quantidade': 5, 'maior': 12, 'media': 9.940000000000001, 'situacao': 'razoável'}
+{'quantidade': 5, 'maior': 12, 'media': 9.940000000000001}
+{'quantidade': 5, 'maior': 12, 'media': 9.940000000000001, 'situacao': 'razoável'}
+{'quantidade': 5, 'maior': 12, 'media': 6.08, 'situacao': 'fraca'}
