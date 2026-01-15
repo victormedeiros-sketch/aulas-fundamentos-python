@@ -1,40 +1,12 @@
-# Crie uma base de dados chamada loja.db e
-# uma tabela chamada produtos com as
-# seguintes colunas:
-# id (INTEGER, PRIMARY KEY, autoincrement),
-# nome (TEXT),
-# preco (REAL),
-# stock (INTEGER).
-
-import sqlite3
-
-def cabecalho(txt: str) -> None:
-    print(f'---{txt}---')
-
-
-def conectar():
-    try:
-        return sqlite3.connect('loja.db')
-    except Exception as erro:
-        print(f'Erro ao inciar ligação a base de dados: {str(erro)}')
-        return ''
-
-
-def tabela_produtos():
-    conn = conectar()
-
-    cursor = conn.cursor()
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS produtos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome TEXT NOT NULL,
-            preco REAL NOT NULL,
-            stock INTEGER NOT NULL DEFAULT 0
-        )
-    ''')
-    conn.commit()
-    conn.close()
-
+# Crie uma Interface Simples no Terminal
+# para Gestão de Produtos.
+# O programa deve permitir:
+# Adicionar novos produtos (com nome, preço e
+# stock),
+# Mostrar todos os produtos da base de dados,
+# Alterar um produto existente (nome, preço ou
+# stock).
+from ex086 import conectar, cabecalho, tabela_produtos
 
 def adicionar_produtos():
     cabecalho('ADICIONAR PRODUTO')
@@ -66,20 +38,6 @@ def mostrar_produtos():
         input()
 
 
-def exluir_produto():
-    cabecalho('EXCLUIR PRODUTO')
-    id_produto = input('Digite o ID do produto para excluir: ')
-
-    conn = conectar()
-    cursor = conn.cursor()
-
-    cursor.execute("DELETE FROM produtos WHERE id = ?", (id_produto,))
-
-    conn.commit()
-    conn.close()
-
-    print('Produto exluido com sucesso.')
-
 
 def alterar_stock():
     cabecalho('ALTERAR STOCK ')
@@ -102,9 +60,8 @@ def menu():
     while True:
         print('[ 1 ] - Adicionar Produto')
         print('[ 2 ] - Mostrar Produtos')
-        print('[ 3 ] - Exluir Produtos')
-        print('[ 4 ] - Alterar Stock')
-        print('[ 5 ] - Sair')
+        print('[ 3 ] - Alterar Stock')
+        print('[ 4 ] - Sair')
         opcao = input('---> ')
 
         match opcao:
@@ -113,10 +70,8 @@ def menu():
             case '2':
                 mostrar_produtos()
             case '3':
-                exluir_produto()
-            case '4':
                 alterar_stock()
-            case '5':
+            case '4':
                 break
             case _:
                 print('Opção inválida.')
@@ -125,10 +80,3 @@ def menu():
 
 if __name__ == '__main__':
     menu()
-
-
-
-
-
-
-
