@@ -27,8 +27,17 @@ class Temperatura:
         self.__celcius = novo_valor
         print(f'Temperatura alterada para {self.__celcius}ºC')
 
-    def converter(self, converte):
-        self.__celcius + 273.15 = converte
-        print(f'Temperatura: {converte}')
+    def converter_kelvin(self):
+        return self.__celcius + 273.15
 
 
+    def converter_farenheit(self):
+        return (self.__celcius * 9/5) + 32
+
+
+
+temp = Temperatura(25)
+temp.mostrar()
+temp.alterar(20)
+print(f'{temp.converter_kelvin()}ºK')
+print(f'{temp.converter_farenheit()}ºF')
