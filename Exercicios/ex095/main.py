@@ -11,32 +11,49 @@ class Contabancaria:
         self.__limite = limite
 
 
-    @property
-    def titular(self):
+    def get_nib(self):
+        return self.__nib
+
+    def set_nib(self, novo_nib):
+        self.__nib = novo_nib
+
+
+    def get_titular(self):
         return self.__titular
 
-    @titular.setter
-    def titular(self, novo_titular):
+    def set_titular(self, novo_titular):
         self.__titular = novo_titular
 
 
-    @property
-    def saldo(self):
+    def get_saldo(self):
         return self.__saldo
 
-
-    @saldo.setter
-    def saldo(self, valor):
-        self.__saldo += valor
+    def set_saldo(self, valor):
+        self.__saldo = valor
 
 
-    @property
-    def limite(self):
+    def get_limite(self):
         return self.__limite
+
+    def set_limite(self, novo_limite):
+        self.__limite = novo_limite
+
+
 
 
 minha_conta = Contabancaria('123456789', 'Victor', 1000, 400)
-print(f"Titular atual: {minha_conta.titular}")
-print(f"Saldo atual: {minha_conta.saldo}")
+
+
+print(f"Titular atual: {minha_conta.get_titular()}")
+print(f"Saldo atual: {minha_conta.get_saldo()}")
+print(f"Limite: {minha_conta.get_limite()}")
+
+
+minha_conta.set_titular("Victor Silva")
+minha_conta.set_saldo(1500)
+
+
+print(f"Titular atualizado: {minha_conta.get_titular()}")
+print(f"Novo saldo: {minha_conta.get_saldo()}")
 
 

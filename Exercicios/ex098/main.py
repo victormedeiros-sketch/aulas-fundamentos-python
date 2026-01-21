@@ -52,7 +52,7 @@ class Produto:
 produto1 = Produto('Telemovel', 10)
 
 produto1.mostrar_stock()
-produto1.adicionar_stock(5)
+produto1.adicionar_stock(3)
 produto1.mostrar_stock()
 
 

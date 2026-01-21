@@ -1,4 +1,4 @@
-# Modifique o exercício 95 para ter atributos
+ # Modifique o exercício 95 para ter atributos
 # privados para titular, saldo e limite.
 # Implemente getters e setters usando property
 # para esses atributos. Adicione métodos para
@@ -16,7 +16,6 @@ class Conta:
 
     @property
     def titular(self):
-        print('Fui buscar indiretamente')
         return self.__titular
 
     @titular.setter
@@ -36,27 +35,10 @@ class Conta:
     def pin(self):
         return None
 
-    @pin.setter
-    def pin(self, novo_pin):
-        self.__pin = novo_pin
-
-    def altera_pin(self):
-        pin_antigo = input('Digite o PIN antigo: ')
-        if pin_antigo == self.__pin:
-            novo_pin = input('Digite o novo PIN: ')
-            novo_repete = input('Digite novamente o novo PIN: ')
-            if novo_pin == novo_repete:
-                self.pin = novo_pin
-                print('PIN alterado com sucesso.')
-            else:
-                print('PIN distinto.')
-        else:
-            print('PIN antigo inválido.')
 
     @property
     def limite(self):
         return self.__limite
-
 
 
 class ATM:

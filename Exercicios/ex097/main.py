@@ -27,5 +27,5 @@ class Livro:
         return self.__disponibilidade
 
 
-livro1 = Livro('Dom Casmurro', 1899, 'Machado de Assis', 'Sim')
+livro1 = Livro('O iluminado', 1977, 'Stephen King', 'Sim')
 print(f'Titulo: {livro1.titulo} | Ano: {livro1.ano} | Autor: {livro1.autor} | Disponivel: {livro1.disponibilidade}')
